@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blooming Petals — Luxury Floral Shop</title>
+<meta name="description" content="Blooming Petals offers premium floral arrangements for every occasion — birthdays, anniversaries, weddings, and more. Order fresh flowers online.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ======= NAVBAR ======= -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Blooming Petals Logo">
+      <div class="nav-logo-text">Blooming Petals<span>Luxury Florals</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Occasions</a></li>
+      <li><a href="flowers.html">Flowers</a></li>
+      <li><a href="compare.html">Compare</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="cart.html" class="cart-btn" id="cartBtn">
+        <span class="cart-label">Cart</span>
+        <span class="cart-badge hidden" id="cartBadge1">0</span>
+      </a>
+      <button class="btn btn-primary btn-sm" id="loginBtn">Sign In</button>
+      <div id="userMenu" class="user-menu hidden">
+        <span class="user-greeting">Hello, <strong id="userName" style="color:var(--accent-gold)"></strong></span>
+        <button class="btn btn-ghost btn-sm" id="logoutBtn">Logout</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ======= HERO ======= -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">🌸 Premium Florals Since 2010</div>
+        <h1 class="hero-title">Every Bloom Tells a <em>Love Story</em></h1>
+        <p class="hero-subtitle">Discover curated floral arrangements crafted with passion — for every milestone, every emotion, every soul.</p>
+        <div class="hero-actions">
+          <a href="products.html" class="btn btn-primary btn-lg">Shop by Occasion</a>
+          <a href="flowers.html" class="btn btn-outline btn-lg">Browse Flowers</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Unique Designs</div></div>
+          <div class="stat-item"><div class="stat-num">12K+</div><div class="stat-label">Happy Customers</div></div>
+          <div class="stat-item"><div class="stat-num">20+</div><div class="stat-label">Flower Varieties</div></div>
+        </div>
+      </div>
+      <div class="hero-visuals">
+        <div class="hero-collage">
+          <img src="images/crimson_romance.jpg" alt="Roses">
+          <img src="images/royal_orchid.jpg" alt="Orchids">
+          <img src="images/sunflower_birthday.jpg" alt="Sunflowers">
+          <img src="images/pink_tulip_surprise.jpg" alt="Tulips">
+          <img src="images/white_lily_bouquet.jpg" alt="Lilies">
+          <img src="images/birthday_bloom_box.jpg" alt="Mixed Blooms">
+          <img src="images/bridal_lily_cascade.jpg" alt="Bridal">
+          <img src="images/wedding_arch_premium.jpg" alt="Wedding">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======= WHY US ======= -->
+<section class="section" style="padding-top:4rem;">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><img src="images/sunflower_birthday.jpg" alt="Farm Fresh"></div>
+        <h4>Farm Fresh Guarantee</h4>
+        <p>All flowers sourced directly from certified farms, delivered within 24 hours of harvest.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><img src="images/bridal_lily_cascade.jpg" alt="Artisans"></div>
+        <h4>Master Artisans</h4>
+        <p>Each arrangement is handcrafted by floral artists with over a decade of experience.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><img src="images/royal_orchid.jpg" alt="Delivery"></div>
+        <h4>Same-Day Delivery</h4>
+        <p>Order before 2 PM and receive your blooms the very same day anywhere in the city.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><img src="images/eternal_love_roses.jpg" alt="Packaging"></div>
+        <h4>Premium Packaging</h4>
+        <p>Eco-friendly luxury packaging that keeps flowers fresh and makes an unforgettable unboxing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= OCCASION CATEGORIES ======= -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Shop by Occasion</div>
+      <h2 class="section-title">Find the Perfect Bloom</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">From joyful celebrations to heartfelt condolences — we have the perfect floral expression for every moment.</p>
+    </div>
+    <div class="categories-grid" id="homeCategoryGrid"></div>
+  </div>
+</section>
+
+<!-- ======= FLOWER TYPES ======= -->
+<section class="section" style="background:var(--bg-secondary);border-top:1px solid var(--border-color);border-bottom:1px solid var(--border-color);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Browse by Flower</div>
+      <h2 class="section-title">Choose Your Bloom</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="categories-grid" id="homeFlowerCards"></div>
+  </div>
+</section>
+
+<!-- ======= FEATURED PRODUCTS ======= -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Featured Collections</div>
+      <h2 class="section-title">Bestselling Arrangements</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="products-grid" id="featuredGrid"></div>
+    <div class="text-center mt-3">
+      <a href="products.html" class="btn btn-outline btn-lg">View All Products →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= TESTIMONIALS ======= -->
+<section class="section" style="background:var(--bg-secondary);border-top:1px solid var(--border-color);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Customer Stories</div>
+      <h2 class="section-title">Loved by Thousands</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">The rose arrangement for our anniversary was breathtaking! The flowers stayed fresh for over a week. Absolutely world-class service.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div><div class="author-name">Aisha Khan</div><div class="author-loc">★★★★★ · Karachi</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Ordered the wedding arch and it was even more stunning in person. Our venue photographer said it was the best floral décor she'd ever seen!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">B</div>
+          <div><div class="author-name">Bilal & Sara</div><div class="author-loc">★★★★★ · Lahore</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Same-day delivery saved my mom's birthday! The birthday bloom box was gorgeous and she absolutely loved it. Will definitely order again.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">O</div>
+          <div><div class="author-name">Omar Sheikh</div><div class="author-loc">★★★★☆ · Islamabad</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <img src="images/logo.png" alt="Logo" style="width:38px;height:38px;border-radius:50%;">
+          <div class="nav-logo-text">Blooming Petals<span>Luxury Florals</span></div>
+        </div>
+        <p>Crafting floral stories since 2010. Premium quality, artisan care, and same-day delivery across the city.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="products.html?category=Birthdays">Birthday Flowers</a></li>
+          <li><a href="products.html?category=Anniversaries">Anniversary</a></li>
+          <li><a href="products.html?category=Marriages">Wedding Florals</a></li>
+          <li><a href="products.html?category=Get-Well">Get-Well</a></li>
+          <li><a href="flowers.html">Browse by Flower</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="compare.html">Compare Products</a></li>
+          <li><a href="cart.html">My Cart</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+923001234567">+92 300 1234 567</a></li>
+          <li><a href="mailto:hello@bloomingpetals.pk">hello@bloomingpetals.pk</a></li>
+          <li><a href="contact.html">Find Our Store</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blooming Petals Pakistan. All rights reserved.</span>
+      <span>Made with care for flower lovers</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ======= AUTH MODAL ======= -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 class="modal-title">Welcome Back</h2>
+      <button class="modal-close">✕</button>
+    </div>
+    <div class="modal-tabs">
+      <button class="modal-tab active" data-tab="login">Sign In</button>
+      <button class="modal-tab" data-tab="signup">Create Account</button>
+    </div>
+    <form id="loginForm">
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-input" placeholder="••••••••" required>
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="form-error"></div>
+      <button type="submit" class="btn btn-primary btn-full mt-2">Sign In</button>
+    </form>
+    <form id="signupForm" class="hidden">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" name="name" class="form-input" placeholder="Your full name" required>
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-input" placeholder="Min. 6 characters" minlength="6" required>
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="form-error"></div>
+      <button type="submit" class="btn btn-primary btn-full mt-2">Create Account</button>
+    </form>
+  </div>
+</div>
+
+<div id="toastContainer" class="toast-container"></div>
+
+<!-- Compare Bar -->
+<div id="compareBar" class="hidden" style="position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--bg-secondary);border-top:1px solid var(--border-gold);padding:.75rem 2rem;display:flex;align-items:center;justify-content:space-between;">
+  <span style="color:var(--text-secondary);font-size:.875rem;"><span id="compareCount" style="color:var(--accent-gold);font-weight:700"></span> products selected for comparison</span>
+  <div style="display:flex;gap:.75rem;">
+    <a href="compare.html" class="btn btn-primary btn-sm">Compare Now</a>
+    <button class="btn btn-ghost btn-sm" onclick="Compare.clear();updateCompareBar();document.querySelectorAll('.compare-checkbox').forEach(c=>{c.checked=false;c.nextElementSibling.innerHTML='Compare';})">Clear</button>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/compare.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Render category cards
+  const catGrid = document.getElementById('homeCategoryGrid');
+  CATEGORIES.forEach(cat => {
+    const count = PRODUCTS.filter(p => p.category === cat.id).length;
+    catGrid.innerHTML += `
+      <a href="products.html?category=${cat.id}" class="category-card">
+        <div class="category-icon"><img src="${cat.image}" alt="${cat.label}" onerror="this.src='images/logo.png'"></div>
+        <div class="category-name">${cat.label}</div>
+        <div class="category-count">${count} products</div>
+      </a>`;
+  });
+
+  // Render flower cards
+  const flowerGrid = document.getElementById('homeFlowerCards');
+  FLOWER_TYPES.forEach(f => {
+    const count = PRODUCTS.filter(p => p.flowerType === f.id).length;
+    flowerGrid.innerHTML += `
+      <a href="flowers.html?flower=${f.id}" class="flower-card">
+        <div class="flower-icon"><img src="${f.image}" alt="${f.label}" onerror="this.src='images/logo.png'"></div>
+        <div class="category-name">${f.label}</div>
+        <div class="category-count">${count} products</div>
+      </a>`;
+  });
+
+  // Render featured products (show top 6 by rating)
+  const featured = [...PRODUCTS].sort((a, b) => b.rating - a.rating).slice(0, 6);
+  const grid = document.getElementById('featuredGrid');
+  featured.forEach(p => { grid.innerHTML += buildProductCard(p); });
+  updateCompareBar();
+
+  // Sync cart badge
+  document.querySelectorAll('.cart-badge').forEach(el => {
+    el.textContent = Cart.getCount();
+    el.classList.toggle('hidden', Cart.getCount() === 0);
+  });
+});
+</script>
+</body>
+</html>

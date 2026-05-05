@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Details — Blooming Petals</title>
+<meta name="description" content="View detailed product information for Blooming Petals floral arrangements.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Blooming Petals Logo">
+      <div class="nav-logo-text">Blooming Petals<span>Luxury Florals</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Occasions</a></li>
+      <li><a href="flowers.html">Flowers</a></li>
+      <li><a href="compare.html">Compare</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="cart.html" class="cart-btn">
+        <span class="cart-label">Cart</span>
+        <span class="cart-badge hidden">0</span>
+      </a>
+      <button class="btn btn-primary btn-sm" id="loginBtn">Sign In</button>
+      <div id="userMenu" class="user-menu hidden">
+        <span class="user-greeting">Hello, <strong id="userName" style="color:var(--accent-gold)"></strong></span>
+        <button class="btn btn-ghost btn-sm" id="logoutBtn">Logout</button>
+      </div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb" id="breadcrumbEl">
+      <a href="index.html">Home</a> / <a href="products.html">Products</a> / <span id="breadcrumbProduct">Product</span>
+    </div>
+    <h1 id="pageTitle">Product Details</h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div id="productContent">
+      <div style="text-align:center;padding:4rem;color:var(--text-muted)">Loading product...</div>
+    </div>
+
+    <!-- Similar Products -->
+    <div id="similarSection" class="hidden" style="margin-top:4rem;">
+      <div class="section-header" style="text-align:left;">
+        <div class="section-label">You May Also Like</div>
+        <h2 class="section-title" style="font-size:1.8rem;">Similar Arrangements</h2>
+        <div class="divider" style="margin:0"></div>
+      </div>
+      <div class="products-grid" id="similarGrid" style="margin-top:2rem;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <img src="images/logo.png" alt="Logo" style="width:38px;height:38px;border-radius:50%;">
+          <div class="nav-logo-text">Blooming Petals<span>Luxury Florals</span></div>
+        </div>
+        <p>Crafting floral stories since 2010. Premium quality, artisan care, and same-day delivery across the city.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="products.html?category=Birthdays">Birthday Flowers</a></li>
+          <li><a href="products.html?category=Anniversaries">Anniversary</a></li>
+          <li><a href="products.html?category=Marriages">Wedding Florals</a></li>
+          <li><a href="products.html?category=Get-Well">Get-Well</a></li>
+          <li><a href="flowers.html">Browse by Flower</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="compare.html">Compare Products</a></li>
+          <li><a href="cart.html">My Cart</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+923001234567">+92 300 1234 567</a></li>
+          <li><a href="mailto:hello@bloomingpetals.pk">hello@bloomingpetals.pk</a></li>
+          <li><a href="contact.html">Find Our Store</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blooming Petals Pakistan. All rights reserved.</span>
+      <span>Made with care for flower lovers</span>
+    </div>
+  </div>
+</footer>
+
+
+<div class="modal-overlay" id="authModal">
+  <div class="modal">
+    <div class="modal-header"><h2 class="modal-title">Welcome Back</h2><button class="modal-close">✕</button></div>
+    <div class="modal-tabs">
+      <button class="modal-tab active" data-tab="login">Sign In</button>
+      <button class="modal-tab" data-tab="signup">Create Account</button>
+    </div>
+    <form id="loginForm">
+      <div class="form-group"><label class="form-label">Email</label><input type="email" name="email" class="form-input" required></div>
+      <div class="form-group"><label class="form-label">Password</label><input type="password" name="password" class="form-input" required></div>
+      <div class="form-error"></div>
+      <button type="submit" class="btn btn-primary btn-full mt-2">Sign In</button>
+    </form>
+    <form id="signupForm" class="hidden">
+      <div class="form-group"><label class="form-label">Full Name</label><input type="text" name="name" class="form-input" required></div>
+      <div class="form-group"><label class="form-label">Email</label><input type="email" name="email" class="form-input" required></div>
+      <div class="form-group"><label class="form-label">Password</label><input type="password" name="password" class="form-input" minlength="6" required></div>
+      <div class="form-error"></div>
+      <button type="submit" class="btn btn-primary btn-full mt-2">Create Account</button>
+    </form>
+  </div>
+</div>
+<div id="toastContainer" class="toast-container"></div>
+<div id="compareBar" class="hidden" style="position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--bg-secondary);border-top:1px solid var(--border-gold);padding:.75rem 2rem;display:flex;align-items:center;justify-content:space-between;">
+  <span style="color:var(--text-secondary);font-size:.875rem;"><span id="compareCount" style="color:var(--accent-gold);font-weight:700"></span> products selected</span>
+  <div style="display:flex;gap:.75rem;">
+    <a href="compare.html" class="btn btn-primary btn-sm">Compare Now</a>
+    <button class="btn btn-ghost btn-sm" onclick="Compare.clear();updateCompareBar();">Clear</button>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/compare.js"></script>
+<script src="js/main.js"></script>
+<script>
+let qty = 1;
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  const product = getProductById(id);
+  const content = document.getElementById('productContent');
+
+  if (!product) {
+    content.innerHTML = '<div style="text-align:center;padding:4rem"><h3 style="color:var(--text-muted)">Product not found.</h3><a href="products.html" class="btn btn-primary mt-2">Browse All Products</a></div>';
+    return;
+  }
+  document.title = product.name + ' — Blooming Petals';
+  document.getElementById('breadcrumbProduct').textContent = product.name;
+  document.getElementById('pageTitle').textContent = product.name;
+
+  const stars = '★'.repeat(Math.floor(product.rating)) + (product.rating % 1 >= 0.5 ? '½' : '');
+  const inCmp = Compare.has(product.id);
+  content.innerHTML = `
+    <div class="product-detail-grid">
+      <div class="product-detail-image">
+        <img src="${product.image}" alt="${product.name}" onerror="this.src='images/rose_bouquet.png'">
+      </div>
+      <div class="product-detail-info">
+        <div class="product-badges">
+          <span class="product-card-badge badge-occasion">${product.category}</span>
+          <span class="product-card-badge badge-flower">${product.flowerType}</span>
+          ${product.isNew ? '<span class="product-card-badge badge-new">New</span>' : ''}
+        </div>
+        <h1 class="product-detail-name">${product.name}</h1>
+        <div class="product-detail-price">${formatPrice(product.price)} <small style="font-size:1rem;color:var(--text-muted);font-family:var(--font-body)">per piece</small></div>
+        <div class="product-rating-row">
+          <span class="stars">${stars}</span>
+          <span class="rating-text">${product.rating} out of 5 • ${product.reviews} reviews</span>
+        </div>
+        <p class="product-detail-desc">${product.description}</p>
+        <div class="product-detail-features mb-3">
+          <h4 style="font-family:var(--font-heading);margin-bottom:.75rem;">What's Included</h4>
+          <div class="feature-list">
+            ${product.features.map(f => `<div class="feature-item"><span class="check">✦</span> ${f}</div>`).join('')}
+          </div>
+        </div>
+        <div style="background:rgba(212,168,67,.06);border:1px solid var(--border-gold);border-radius:var(--radius-sm);padding:1rem;margin-bottom:1.5rem;">
+          <p style="font-size:.82rem;color:var(--text-secondary);"><strong style="color:var(--text-primary)">Product Features Document</strong> — Download the detailed feature guide for care instructions, dimensions, and styling tips.</p>
+          <a href="docs/product-${product.id}.docx" download class="btn btn-ghost btn-sm mt-1" style="margin-top:.75rem;">Download Word Doc</a>
+        </div>
+        <div class="qty-row">
+          <span class="qty-label">Quantity:</span>
+          <div class="qty-control">
+            <button class="qty-btn" onclick="adjustQty(-1)">−</button>
+            <input type="number" class="qty-input" value="1" min="1" max="50" id="qtyInput" onchange="qty=parseInt(this.value)||1">
+            <button class="qty-btn" onclick="adjustQty(1)">+</button>
+          </div>
+        </div>
+        <div class="product-detail-actions">
+          <button class="btn btn-primary btn-sm" onclick="Cart.add(${JSON.stringify(product).replace(/"/g,'&quot;')}, qty)">Add to Cart</button>
+          <button class="btn btn-outline btn-sm" id="compareBtn" onclick="toggleCompare(${product.id})">${inCmp ? 'In Compare List' : 'Add to Compare'}</button>
+        </div>
+      </div>
+    </div>`;
+
+  // Similar products
+  const similar = PRODUCTS.filter(p => p.id !== product.id && (p.category === product.category || p.flowerType === product.flowerType)).slice(0, 4);
+  if (similar.length) {
+    document.getElementById('similarSection').classList.remove('hidden');
+    document.getElementById('similarGrid').innerHTML = similar.map(buildProductCard).join('');
+  }
+  updateCompareBar();
+  document.querySelectorAll('.cart-badge').forEach(el => {
+    el.textContent = Cart.getCount();
+    el.classList.toggle('hidden', Cart.getCount() === 0);
+  });
+});
+
+function adjustQty(delta) {
+  const input = document.getElementById('qtyInput');
+  qty = Math.max(1, (parseInt(input.value) || 1) + delta);
+  input.value = qty;
+}
+function toggleCompare(id) {
+  Compare.toggle(id);
+  const btn = document.getElementById('compareBtn');
+  btn.textContent = Compare.has(id) ? '✓ In Compare List' : '⊕ Add to Compare';
+  updateCompareBar();
+}
+</script>
+</body>
+</html>

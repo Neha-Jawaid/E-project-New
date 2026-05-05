@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Cart — Blooming Petals</title>
+<meta name="description" content="View your shopping cart and generate a bill at Blooming Petals.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Blooming Petals Logo">
+      <div class="nav-logo-text">Blooming Petals<span>Luxury Florals</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Occasions</a></li>
+      <li><a href="flowers.html">Flowers</a></li>
+      <li><a href="compare.html">Compare</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="cart.html" class="cart-btn">
+        <span class="cart-label">Cart</span>
+        <span class="cart-badge hidden">0</span>
+      </a>
+      <button class="btn btn-primary btn-sm" id="loginBtn">Sign In</button>
+      <div id="userMenu" class="user-menu hidden">
+        <span class="user-greeting">Hello, <strong id="userName" style="color:var(--accent-gold)"></strong></span>
+        <button class="btn btn-ghost btn-sm" id="logoutBtn">Logout</button>
+      </div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Print Header -->
+<div class="print-header">
+  <h2 style="font-family:serif;">Blooming Petals — Invoice</h2>
+  <p style="color:#666;">123 Flower Street, Clifton · hello@bloomingpetals.pk</p>
+  <p style="color:#666;">Date: <span id="invoiceDate"></span></p>
+</div>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <span>My Cart</span></div>
+    <h1>Shopping Cart</h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container" id="cartSection">
+    <!-- Filled by JS -->
+  </div>
+</section>
+
+<!-- Success Modal -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <div class="success-modal-content">
+      <div class="success-icon" style="font-size:3rem; color:var(--accent-gold); margin-bottom:1rem;">Verified</div>
+      <h2>Order Placed!</h2>
+      <p>Thank you for your order! Your beautiful blooms will be delivered soon. You'll receive a confirmation shortly.</p>
+      <div style="display:flex;flex-direction:column;gap:.75rem;margin-top:1rem;">
+        <button class="btn btn-primary" onclick="document.getElementById('successModal').classList.remove('open');Cart.clear();renderCart();">Continue Shopping</button>
+        <a href="index.html" class="btn btn-ghost">Back to Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="authModal">
+  <div class="modal">
+    <div class="modal-header"><h2 class="modal-title">Welcome Back</h2><button class="modal-close">✕</button></div>
+    <div class="modal-tabs">
+      <button class="modal-tab active" data-tab="login">Sign In</button>
+      <button class="modal-tab" data-tab="signup">Create Account</button>
+    </div>
+    <form id="loginForm">
+      <div class="form-group"><label class="form-label">Email</label><input type="email" name="email" class="form-input" required></div>
+      <div class="form-group"><label class="form-label">Password</label><input type="password" name="password" class="form-input" required></div>
+      <div class="form-error"></div>
+      <button type="submit" class="btn btn-primary btn-full mt-2">Sign In</button>
+    </form>
+    <form id="signupForm" class="hidden">
+      <div class="form-group"><label class="form-label">Full Name</label><input type="text" name="name" class="form-input" required></div>
+      <div class="form-group"><label class="form-label">Email</label><input type="email" name="email" class="form-input" required></div>
+      <div class="form-group"><label class="form-label">Password</label><input type="password" name="password" class="form-input" minlength="6" required></div>
+      <div class="form-error"></div>
+      <button type="submit" class="btn btn-primary btn-full mt-2">Create Account</button>
+    </form>
+  </div>
+</div>
+<div id="toastContainer" class="toast-container"></div>
+
+<!-- ======= FOOTER ======= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <img src="images/logo.png" alt="Logo" style="width:38px;height:38px;border-radius:50%;">
+          <div class="nav-logo-text">Blooming Petals<span>Luxury Florals</span></div>
+        </div>
+        <p>Crafting floral stories since 2010. Premium quality, artisan care, and same-day delivery across the city.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="products.html?category=Birthdays">Birthday Flowers</a></li>
+          <li><a href="products.html?category=Anniversaries">Anniversary</a></li>
+          <li><a href="products.html?category=Marriages">Wedding Florals</a></li>
+          <li><a href="products.html?category=Get-Well">Get-Well</a></li>
+          <li><a href="flowers.html">Browse by Flower</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="compare.html">Compare Products</a></li>
+          <li><a href="cart.html">My Cart</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+923001234567">+92 300 1234 567</a></li>
+          <li><a href="mailto:hello@bloomingpetals.pk">hello@bloomingpetals.pk</a></li>
+          <li><a href="contact.html">Find Our Store</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blooming Petals Pakistan. All rights reserved.</span>
+      <span>Made with care for flower lovers</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/compare.js"></script>
+<script src="js/main.js"></script>
+<script>
+const GST_RATE = 0.18;
+
+function renderCart() {
+  const section = document.getElementById('cartSection');
+  const items = Cart.getAll();
+  if (!items.length) {
+    section.innerHTML = `
+      <div class="empty-cart">
+        <div style="font-size:3rem;margin-bottom:1rem;color:var(--text-muted)">Empty Cart</div>
+        <h3 style="font-family:var(--font-heading);color:var(--text-secondary);margin-bottom:.5rem;">Your cart is empty</h3>
+        <p style="margin-bottom:1.5rem;">Add some beautiful arrangements to get started!</p>
+        <a href="products.html" class="btn btn-primary btn-sm mt-2">Shop Now</a>
+      </div>`;
+    return;
+  }
+
+  const subtotal = Cart.getSubtotal();
+  const gst = Math.round(subtotal * GST_RATE * 100) / 100;
+  const deliveryScale = 5.99;
+  const deliveryThreshold = 50.00;
+  const delivery = subtotal >= deliveryThreshold ? 0 : deliveryScale;
+  const total = subtotal + gst + delivery;
+  const user = Auth.currentUser();
+
+  let itemsHtml = items.map(item => `
+    <div class="cart-item" id="cart-item-${item.id}">
+      <img src="${item.image}" alt="${item.name}" class="cart-item-img" onerror="this.src='images/rose_bouquet.png'">
+      <div>
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-category">${item.category}</div>
+        <div class="cart-item-price">${formatPrice(item.price)} × ${item.qty} = <strong>${formatPrice(item.price * item.qty)}</strong></div>
+      </div>
+      <div class="cart-item-controls">
+        <div class="qty-control">
+          <button class="qty-btn" onclick="changeQty(${item.id}, ${item.qty - 1})">−</button>
+          <span class="qty-input" style="display:flex;align-items:center;justify-content:center;width:40px;">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${item.id}, ${item.qty + 1})">+</button>
+        </div>
+        <button class="btn btn-danger btn-sm" onclick="removeItem(${item.id})">✕</button>
+      </div>
+    </div>`).join('');
+
+  section.innerHTML = `
+    <div class="cart-layout">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+          <h2 style="font-family:var(--font-heading);">Cart Items (${items.length})</h2>
+          <button class="btn btn-ghost btn-sm" onclick="Cart.clear();renderCart();showToast('Cart cleared.','info')">Clear All</button>
+        </div>
+        <div class="cart-items">${itemsHtml}</div>
+      </div>
+      <div class="bill-card">
+        <div class="print-header" style="display:none" id="invoiceHeader">
+          <strong>Customer:</strong> ${user ? user.name : 'Guest'}<br>
+          <strong>Email:</strong> ${user ? user.email : '-'}
+        </div>
+        <div class="bill-title">Order Summary</div>
+        <div class="bill-row"><span>Subtotal (${items.reduce((s,i) => s+i.qty, 0)} items)</span><span>${formatPrice(subtotal)}</span></div>
+        <div class="bill-row"><span>GST (18%)</span><span>${formatPrice(gst)}</span></div>
+        <div class="bill-row"><span>Delivery Charges</span><span>${delivery === 0 ? '<span style="color:#4fcc8a">FREE</span>' : formatPrice(delivery)}</span></div>
+        ${delivery > 0 ? `<div style="font-size:.75rem;color:var(--text-muted);padding:.25rem 0;">Free delivery on orders above ${formatPrice(deliveryThreshold)}</div>` : ''}
+        <div class="bill-row total"><span>Grand Total</span><span class="bill-amount">${formatPrice(total)}</span></div>
+        <div class="bill-actions">
+          <button class="btn btn-primary btn-full" onclick="placeOrder()">Place Order</button>
+          <button class="btn btn-ghost btn-full" onclick="printInvoice()">Print Invoice</button>
+          <a href="products.html" class="btn btn-outline btn-full">Continue Shopping</a>
+        </div>
+        <div style="margin-top:1rem;padding:1rem;background:rgba(212,168,67,.06);border-radius:var(--radius-sm);border:1px solid var(--border-gold);font-size:.78rem;color:var(--text-muted);">
+          🔒 Secure checkout. All transactions are protected.
+        </div>
+      </div>
+    </div>`;
+
+  document.querySelectorAll('.cart-badge').forEach(el => {
+    el.textContent = Cart.getCount();
+    el.classList.toggle('hidden', Cart.getCount() === 0);
+  });
+}
+
+function changeQty(id, newQty) {
+  Cart.updateQty(id, newQty);
+  renderCart();
+}
+function removeItem(id) {
+  Cart.remove(id);
+  renderCart();
+  showToast('Item removed from cart.', 'info');
+}
+function placeOrder() {
+  if (!Auth.isLoggedIn()) {
+    openAuthModal(() => placeOrder());
+    return;
+  }
+  document.getElementById('successModal').classList.add('open');
+}
+function printInvoice() {
+  document.getElementById('invoiceDate').textContent = new Date().toLocaleDateString('en-IN', { day:'2-digit', month:'long', year:'numeric' });
+  document.querySelectorAll('.print-header').forEach(el => el.style.display = 'block');
+  window.print();
+  document.querySelectorAll('.print-header').forEach(el => el.style.display = 'none');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderCart();
+  document.getElementById('invoiceDate') && (document.getElementById('invoiceDate').textContent = new Date().toLocaleDateString('en-IN'));
+  document.getElementById('successModal').addEventListener('click', e => { if (e.target === document.getElementById('successModal')) document.getElementById('successModal').classList.remove('open'); });
+});
+</script>
+</body>
+</html>
